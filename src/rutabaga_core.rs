@@ -1269,6 +1269,12 @@ impl RutabagaBuilder {
         self
     }
 
+    /// Sets VA-API video decode/encode support in virglrenderer.
+    pub fn set_use_video(mut self, v: bool) -> RutabagaBuilder {
+        self.virglrenderer_flags = self.virglrenderer_flags.use_video(v);
+        self
+    }
+
     /// Sets use render server in virglrenderer.
     pub fn set_use_render_server(mut self, v: bool) -> RutabagaBuilder {
         self.virglrenderer_flags = self.virglrenderer_flags.use_render_server(v);
