@@ -384,6 +384,7 @@ const VIRGLRENDERER_NO_VIRGL: u32 = 1 << 7;
 const VIRGLRENDERER_USE_ASYNC_FENCE_CB: u32 = 1 << 8;
 const VIRGLRENDERER_RENDER_SERVER: u32 = 1 << 9;
 const VIRGLRENDERER_DRM: u32 = 1 << 10;
+const VIRGLRENDERER_USE_VIDEO: u32 = 1 << 11;
 const VIRGLRENDERER_ROCM: u32 = 1 << 14;
 
 /// virglrenderer flag struct.
@@ -446,6 +447,11 @@ impl VirglRendererFlags {
     /// Enable drm native context support
     pub fn use_drm(self, v: bool) -> VirglRendererFlags {
         self.set_flag(VIRGLRENDERER_DRM, v)
+    }
+
+    /// Enable VA-API video decode/encode support
+    pub fn use_video(self, v: bool) -> VirglRendererFlags {
+        self.set_flag(VIRGLRENDERER_USE_VIDEO, v)
     }
 
     /// Enable ROCm support
